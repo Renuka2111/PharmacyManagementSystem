@@ -1,0 +1,16 @@
+<!-- includes the log out button , search bar-->
+<div class="navbar-end level-right" >
+  <div class="navbar-item level-item">
+    <div class="buttons">
+      <button class="button is-primary" routerLink="/doctorLogin">
+        <strong>Log in as Doctor</strong>
+      </button>
+      <button *ngIf="!userIsAuthenticated" class="button is-primary"  routerLink="/login">
+        <strong>Log in as Admin</strong>
+      </button>
+      <button *ngIf="userIsAuthenticated" class="button is-primary" (click)="onLogout()" >
+        <strong>Log out</strong>
+      </button>
+    </div>
+  </div>
+</div>
