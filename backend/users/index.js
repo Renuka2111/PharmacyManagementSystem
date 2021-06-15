@@ -42,7 +42,7 @@ app.use("/api/doctorUser",doctorUserRoutes);
 
 //listening to Port 
 app.listen(PORT,"0.0.0.0", ()=>
-  console.log(`Supplier-inventory service at port ${PORT}`)
+  console.log(`Users service at port ${PORT}`)
 );
 module.exports=app;
 

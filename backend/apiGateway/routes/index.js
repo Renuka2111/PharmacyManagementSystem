@@ -9,9 +9,6 @@ module.exports = (baseURL) => {
     baseURL: baseURL,
   });
 }
-var users_api=axios.create({
-  baseURL: 'http://localhost:3000' 
-})
 
 router.all('/', function(req, res, next) {
   res.render('index', { title: 'Pharmacy Management System API-GateWay' });

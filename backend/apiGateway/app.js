@@ -7,6 +7,13 @@ const cors = require("cors");
 
 var indexRouter = require('./routes/index');
 var adminsRouter = require('./routes/users/admin-api');
+var doctorRouter =require('./routes/users/doctor-api');
+var doctorOrderRouter= require('./routes/orders/doctorOrders-api');
+var verifiedOrderRouter= require('./routes/orders/verifiedDocOrders-api');
+var pickedUpOrderRouter= require('./routes/orders/pickedUpOrders-api');
+var supplierRouter= require('./routes/suppliers-inventory/supplier-api');
+var inventoryRouter= require('./routes/suppliers-inventory/inventory-api');
+var salesRouter= require('./routes/suppliers-inventory/sales-api');
 
 var app = express();
 
@@ -22,8 +29,18 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use(cors());
 app.use('/', indexRouter);
 
-//========users==============
-app.use('/admin', adminsRouter)
+//----------Users-----------------
+app.use('/api/admin', adminsRouter)
+app.use('/api/doctorUser',doctorRouter)
+
+//--------Orders-----------------------
+app.use('/api/doctorOrder', doctorOrderRouter)
+app.use('/api/verifiedDoctorOrder', verifiedOrderRouter)
+app.use('/api/pickedUpOrders',pickedUpOrderRouter)
+//--------Supplier-inventory-----------
+app.use('/api/supplier',supplierRouter)
+app.use('/api/inventory',inventoryRouter)
+app.use('/api/sales', salesRouter)
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
